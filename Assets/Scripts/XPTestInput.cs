@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class XPTestInput : MonoBehaviour
 {
-    public XPSystem xpSystem;
+    public PlayerProgression playerprogression;
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            xpSystem.AddXP(100);
+            playerprogression.AddXP(100);
             Debug.Log("Gav 100 XP");
         }
     }
