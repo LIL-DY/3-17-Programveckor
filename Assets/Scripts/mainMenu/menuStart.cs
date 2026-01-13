@@ -2,7 +2,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class mainMenu : MonoBehaviour
+public class menuStart : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -15,7 +15,7 @@ public class mainMenu : MonoBehaviour
     {
         
     }
-    public void startGame()
+    public void openGame()
     {
         SceneManager.LoadScene(1);
     }
