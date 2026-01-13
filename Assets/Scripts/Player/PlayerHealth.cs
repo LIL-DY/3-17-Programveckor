@@ -1,38 +1,77 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Events;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public int maxHealth = 10;
     public int currentHealth;
-    public int maxHealth;
 
     public TMP_Text healthText;
+    public Slider healthSlider;
+    public GameObject healthBarObject;
 
-    private void Start()
+    public float regenDelay = 60f;
+    public float regenTickTime = 1f;
+
+    public UnityEvent OnDamage;
+
+    private Coroutine regenCoroutine;
+
+    void Start()
     {
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-        UpdateHealthText();
+        currentHealth = maxHealth;
+        UpdateUI();
     }
 
-    public void ChangeHealth(int amount)
+    public void TakeDamage(int amount)
     {
-        currentHealth += amount;
-
-        
+        currentHealth -= amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
-        UpdateHealthText();
+        UpdateUI();
+        OnDamage?.Invoke();
 
         if (currentHealth <= 0)
         {
-            gameObject.SetActive(false);
+            Die();
+        }
+
+        if (regenCoroutine != null)
+            StopCoroutine(regenCoroutine);
+
+        regenCoroutine = StartCoroutine(HealthRegen());
+    }
+
+    private IEnumerator HealthRegen()
+    {
+        yield return new WaitForSeconds(regenDelay);
+
+        while (currentHealth < maxHealth)
+        {
+            currentHealth += 1;
+            UpdateUI();
+            yield return new WaitForSeconds(regenTickTime);
         }
     }
 
-    private void UpdateHealthText()
+    private void UpdateUI()
     {
-        healthText.text = "HP: " + currentHealth + "/ " + maxHealth;
+        if (healthText != null)
+            healthText.text = "HP: " + currentHealth + "/" + maxHealth;
+
+        if (healthSlider != null)
+            healthSlider.value = currentHealth;
+
+        if (healthBarObject != null)
+            healthBarObject.SetActive(currentHealth < maxHealth);
+    }
+
+    private void Die()
+    {
+        Debug.Log("Player Died!");
+        gameObject.SetActive(false);
     }
 }

@@ -9,7 +9,7 @@ public class Enemy_Combat : MonoBehaviour
         PlayerHealth hp = target.GetComponent<PlayerHealth>();
         if (hp != null)
         {
-            hp.ChangeHealth(-damage);
+            hp.TakeDamage(-damage);
         }
     }
 }
