@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerAttack3: MonoBehaviour
+public class PlayerAttack2 : MonoBehaviour
 {
     private GameObject attackArea = default;
 
@@ -38,7 +38,6 @@ public class PlayerAttack3: MonoBehaviour
     private void StartAttack()
     {
         attacking = true;
-        timer = 0f;
-        attackArea.SetActive(true);
+        attackArea.SetActive(attacking);
     }
 }
