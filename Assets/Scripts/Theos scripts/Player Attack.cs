@@ -18,7 +18,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            Attack();
+
         }
 
         if (attacking)
