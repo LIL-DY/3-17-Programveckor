@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class PlayerAttack : MonoBehaviour
+public class PlayerAttack3: MonoBehaviour
 {
-    private GameObject attckArea = default;
+    private GameObject attackArea = default;
 
     private bool attacking = false;
     private float AttackTime = 0.25f;
@@ -10,7 +10,8 @@ public class PlayerAttack : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        attckArea = transform.GetChild(0).gameObject;
+        attackArea = transform.GetChild(0).gameObject;
+        attackArea.SetActive(false);
     }
 
     // Update is called once per frame
@@ -18,7 +19,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            Attack();
+            StartAttack();
         }
 
         if (attacking)
@@ -29,14 +30,15 @@ public class PlayerAttack : MonoBehaviour
             {
                 timer = 0;
                 attacking = false;
-                attckArea.SetActive(attacking);
+                attackArea.SetActive(attacking);
             }
         }
     }
 
-    private void Attack()
+    private void StartAttack()
     {
         attacking = true;
-        attckArea.SetActive(attacking);
+        timer = 0f;
+        attackArea.SetActive(true);
     }
 }
