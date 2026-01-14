@@ -9,8 +9,8 @@ public class EnemyHealth : MonoBehaviour
     private EnemySpawner spawner;
     private SpriteRenderer sr;
 
-    public Color hitColor = Color.red;   // колір при ударі
-    public float flashDuration = 0.1f;   // тривалість ефекту
+    public Color hitColor = Color.red;   
+    public float flashDuration = 0.1f;   
 
     private void Start()
     {
@@ -23,7 +23,7 @@ public class EnemyHealth : MonoBehaviour
     {
         currentHealth -= amount;
 
-        StartCoroutine(HitFlash()); // запускаємо ефект удару
+        StartCoroutine(HitFlash()); 
 
         if (currentHealth <= 0)
         {

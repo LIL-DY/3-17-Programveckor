@@ -29,7 +29,7 @@ public class PlayerAttackHeavy : MonoBehaviour
 
     void HeavyAttack()
     {
-        // ????????? ???? ??????? ? ???????
+        
         Collider2D[] enemies = Physics2D.OverlapCircleAll(
             transform.position,
             attackRange,
@@ -39,7 +39,7 @@ public class PlayerAttackHeavy : MonoBehaviour
         if (enemies.Length == 0)
             return;
 
-        // ??????? ???????????
+        
         Collider2D nearestEnemy = null;
         float nearestDistance = Mathf.Infinity;
 
@@ -54,7 +54,7 @@ public class PlayerAttackHeavy : MonoBehaviour
             }
         }
 
-        // ???????? ???? ??????????? ??????
+        
         if (nearestEnemy != null)
         {
             EnemyHealth hp = nearestEnemy.GetComponent<EnemyHealth>();
