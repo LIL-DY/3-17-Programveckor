@@ -149,11 +149,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawn
   enemyPrefab: {fileID: 1559735382607160788, guid: 2c7e97f3a17814e4c8b9ae6a404080b6, type: 3}
-  spawnRadius: 4
+  spawnRadius: 5
   minEnemies: 2
   maxEnemies: 8
   spawnDelay: 0.7
   waveDelay: 3
+  aliveEnemies: 0
 --- !u!4 &355788206
 Transform:
   m_ObjectHideFlags: 0
@@ -163,7 +164,7 @@ Transform:
   m_GameObject: {fileID: 355788204}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.17, y: 0.14, z: 0}
+  m_LocalPosition: {x: 0.08, y: 0.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -506,7 +507,7 @@ Transform:
   m_GameObject: {fileID: 856237692}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.22, y: 1.37, z: 0}
+  m_LocalPosition: {x: -8.13, y: 1.37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
