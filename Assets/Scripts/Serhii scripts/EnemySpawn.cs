@@ -3,12 +3,15 @@ using System.Collections;
 
 public class EnemySpawner : MonoBehaviour
 {
+    [Header("Enemy Settings")]
     public GameObject enemyPrefab;
+
+    [Header("Spawn Settings")]
     public float spawnRadius = 5f;
 
+    [Header("Wave Settings")]
     public int minEnemies = 1;
     public int maxEnemies = 4;
-
     public float spawnDelay = 0.7f;   
     public float waveDelay = 3f;      
 
