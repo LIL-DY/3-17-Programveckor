@@ -1037,6 +1037,7 @@ GameObject:
   - component: {fileID: 1541499446}
   - component: {fileID: 1541499445}
   - component: {fileID: 1541499448}
+  - component: {fileID: 1541499449}
   m_Layer: 5
   m_Name: Level 1
   m_TagString: Untagged
@@ -1108,7 +1109,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1541499448}
+      - m_Target: {fileID: 1541499449}
         m_TargetAssemblyTypeName: menuStart, Assembly-CSharp
         m_MethodName: openGame
         m_Mode: 1
@@ -1168,6 +1169,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f2d4257981ad01d46b39ee1e87227cb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::menuStart
+--- !u!114 &1541499449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541499443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aff366f01d5690f4d9eea24cdb83d410, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::menuStart
 --- !u!1 &1629738799
