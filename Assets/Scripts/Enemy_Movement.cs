@@ -13,6 +13,7 @@ public class EnemyFollowWithAttack : MonoBehaviour
 
     private void Start()
     {
+        player = GameObject.FindWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
     }
 
