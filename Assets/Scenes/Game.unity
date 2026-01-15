@@ -1796,7 +1796,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   moveSpeed: 10
   PlayerFootStep: {fileID: 1024683456}
-  whenToPlaySound: 0.3
+  whenToPlaySound: 0.4
 --- !u!50 &1716306057
 Rigidbody2D:
   serializedVersion: 5
