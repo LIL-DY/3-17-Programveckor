@@ -10,6 +10,10 @@ public class PlayerAttack : MonoBehaviour
     public float attackCooldown = 1f;
     private float lastAttackTime = -999f;
 
+    public AudioSource audioSource;
+    public AudioClip MissingSound;
+    public AudioClip[] hittingSound;
+
     void Awake()
     {
         if (animator == null)
@@ -41,6 +45,8 @@ public class PlayerAttack : MonoBehaviour
 
     void Attack()
     {
+        bool HittingEnemy = false;
+
         Collider2D[] hitEnemies =
             Physics2D.OverlapCircleAll(transform.position, attackRange, enemyLayer);
 
@@ -48,7 +54,25 @@ public class PlayerAttack : MonoBehaviour
         {
             var health = enemy.GetComponent<EnemyHealth>();
             if (health != null)
+            {
                 health.TakeDamage(damage);
+                HittingEnemy = true;
+            }
+                
+        }
+        PlayAttackSound(HittingEnemy);
+    }
+
+    void PlayAttackSound(bool hitEnemies)
+    {
+        if (hitEnemies)
+        {
+            int index = Random.Range(0, hittingSound.Length);
+            audioSource.PlayOneShot(hittingSound[index]);
+        }
+        else
+        {
+            audioSource.PlayOneShot(MissingSound);
         }
     }
 
