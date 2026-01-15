@@ -299,7 +299,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 102642243}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c77c0dfc05d11794baa0d6f52a33449d, type: 3}
+  m_Script: {fileID: 11500000, guid: 56139b8c752db794c845050ed69eebc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::XPTestInput
   playerprogression: {fileID: 102642248}
@@ -312,7 +312,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 102642243}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27784669132981b46a3f8b6307bc6c63, type: 3}
+  m_Script: {fileID: 11500000, guid: a9f750a1b5aa2764db69c7b989635950, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerUpgradeController
   playerProgression: {fileID: 102642248}
@@ -326,7 +326,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 102642243}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6c95fc0b98f1764a9f4806412ae6ba0, type: 3}
+  m_Script: {fileID: 11500000, guid: 7183d08eae144cc4db899deb01779e4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::XPSystem
   xp: 0
@@ -1068,7 +1068,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1133169785}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb7182056a5a9b747a738f11be160649, type: 3}
+  m_Script: {fileID: 11500000, guid: 5340c3861513a694eb064b416340f3ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tower
   towerLevel: 1
@@ -1468,7 +1468,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1716306055}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd906c6353b33bb43976637d69ecd3a3, type: 3}
+  m_Script: {fileID: 11500000, guid: 93e38325e710c494abe67c0e1eae810d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   moveSpeed: 10
@@ -1806,7 +1806,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1959256800}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be56d070473e552458aa07b7034008a1, type: 3}
+  m_Script: {fileID: 11500000, guid: c6bc01b1dd663b943b6f74fd60e95908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::XPUI
   playerprogression: {fileID: 102642248}
@@ -1945,7 +1945,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1971452992}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30d0ce73cc59bd24186b236a7b67a53c, type: 3}
+  m_Script: {fileID: 11500000, guid: ce2b500b7246bea42a8fe8b423615c06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerLevelUI
   tower: {fileID: 1133169786}
