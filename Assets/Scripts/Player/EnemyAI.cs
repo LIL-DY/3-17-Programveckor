@@ -29,10 +29,22 @@ public class EnemyAI : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        AudioSource[]sources = GetComponents<AudioSource>();
+
+        AudioSource[] sources = GetComponents<AudioSource>();
+
+        if (sources.Length < 2)
+        {
+            int toAdd = 2 - sources.Length;
+            for (int i = 0; i < toAdd; i++)
+                gameObject.AddComponent<AudioSource>();
+
+            sources = GetComponents<AudioSource>();
+        }
+
         walkingScource = sources[0];
         screamScource = sources[1];
     }
+
 
     void Start()
     {

@@ -6,11 +6,11 @@ public class BreakablePlant : MonoBehaviour
 
     [Header("Drop")]
     public GameObject gemPrefab;
-    [Range(0f, 1f)] public float dropChance = 0.25f;
+    [Range(0f, 1f)] public float dropChance = 0.4f; // 40% chans
     public int minGems = 1;
     public int maxGems = 2;
 
-    bool dead = false;
+    bool dead;
 
     public void TakeDamage(int amount)
     {
@@ -26,14 +26,15 @@ public class BreakablePlant : MonoBehaviour
     {
         dead = true;
 
-        // Drop
+        // Drop gems
         if (gemPrefab != null && Random.value <= dropChance)
         {
             int count = Random.Range(minGems, maxGems + 1);
+
             for (int i = 0; i < count; i++)
             {
-                Vector3 pos = transform.position + (Vector3)Random.insideUnitCircle * 0.2f;
-                Instantiate(gemPrefab, pos, Quaternion.identity);
+                Vector2 offset = Random.insideUnitCircle * 0.25f;
+                Instantiate(gemPrefab, (Vector2)transform.position + offset, Quaternion.identity);
             }
         }
 
