@@ -11,7 +11,12 @@ public class PlayerController : MonoBehaviour
     private Animator myAnimator;
     private SpriteRenderer mySpriteRender;
 
+    public AudioSource PlayerFootStep;
+    public float whenToPlaySound = 0.3f;
+    private float StepTimer = 0f;
+   
 
+    
 
     private void Awake() {
         playerControls = new PlayerControls();
@@ -24,8 +29,29 @@ public class PlayerController : MonoBehaviour
         playerControls.Enable();
     }
 
-    private void Update() {
+    private void Update()
+    {
         PlayerInput();
+        
+        if(movement != Vector2.zero)
+        {
+            StepTimer += Time.deltaTime;
+            if(StepTimer >= whenToPlaySound)
+            {
+                PlayerFootStep.Play();
+                StepTimer = 0f; 
+            }
+        }
+        else
+        {
+            StepTimer = 0f;
+            if (PlayerFootStep.isPlaying)
+            {
+                PlayerFootStep.Stop();
+            }
+        }
+
+        
     }
 
     private void FixedUpdate() {
@@ -33,7 +59,8 @@ public class PlayerController : MonoBehaviour
         Move();
     }
 
-    private void PlayerInput() {
+    private void PlayerInput() 
+    {
         movement = playerControls.Movment.Move.ReadValue<Vector2>();
 
         myAnimator.SetFloat("moveX", movement.x);
