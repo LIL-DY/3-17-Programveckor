@@ -5,6 +5,12 @@ public class EnemySpawner : MonoBehaviour
 {
     [Header("Enemy Settings")]
     public GameObject enemyPrefab;
+    private GameObject spawnedEnemy;
+    private GameObject enemy;
+
+    [Header("Audio")]
+    public AudioSource audioSource;
+    public AudioClip spawnSound;
 
     [Header("Spawn Settings")]
     public float spawnRadius = 5f;
@@ -34,15 +40,27 @@ public class EnemySpawner : MonoBehaviour
     {
         for (int i = 0; i < count; i++)
         {
-            SpawnEnemy();
+            enemy = SpawnEnemy();
+
+            if (i==0)
+            {
+                EnemyAI enemyAI = enemy.GetComponent<EnemyAI>();
+                if (enemyAI != null)
+                    enemyAI.isFirstInWave = true;
+            }
+
             yield return new WaitForSeconds(spawnDelay);
         }
     }
 
-    void SpawnEnemy()
+    GameObject SpawnEnemy()
     {
         Vector2 randomPos = (Vector2)transform.position + Random.insideUnitCircle * spawnRadius;
-        Instantiate(enemyPrefab, randomPos, Quaternion.identity);
+        spawnedEnemy = Instantiate(enemyPrefab, randomPos, Quaternion.identity);
+
+        audioSource.PlayOneShot(spawnSound);
+
+        return spawnedEnemy;
     }
 
     public void OnEnemyKilled()

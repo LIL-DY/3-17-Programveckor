@@ -7,7 +7,7 @@ public class EnemyFollowWithAttack : MonoBehaviour
     public float agroRange = 5f;
     public float attackRange = 1f;
     public float attackCooldown = 1f;
-
+    
     private float lastAttackTime = 0f;
     private Rigidbody2D rb;
 
