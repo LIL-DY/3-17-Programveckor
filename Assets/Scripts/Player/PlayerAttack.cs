@@ -3,7 +3,7 @@
 public class PlayerAttack : MonoBehaviour
 {
     public int damage = 1;
-    public float attackRange = 1f;
+    public float attackRange = 2.5f;
     public LayerMask enemyLayer;
     public Animator animator;
 
@@ -45,23 +45,36 @@ public class PlayerAttack : MonoBehaviour
 
     void Attack()
     {
-        bool HittingEnemy = false;
+        bool hittingSomething = false;
 
         Collider2D[] hitEnemies =
             Physics2D.OverlapCircleAll(transform.position, attackRange, enemyLayer);
 
-        foreach (Collider2D enemy in hitEnemies)
+        Debug.Log("Attack! Hits: " + hitEnemies.Length);
+
+        foreach (Collider2D hit in hitEnemies)
         {
-            var health = enemy.GetComponent<EnemyHealth>();
-            if (health != null)
+            Debug.Log("Hit: " + hit.name);
+
+            var enemy = hit.GetComponent<MonsterHealth>();
+            if (enemy != null)
             {
-                health.TakeDamage(damage);
-                HittingEnemy = true;
+                enemy.TakeDamage(damage);
+                hittingSomething = true;
             }
-                
+
+            var plant = hit.GetComponent<BreakablePlant>();
+            if (plant != null)
+            {
+                plant.TakeDamage(damage);
+                hittingSomething = true;
+            }
         }
-        PlayAttackSound(HittingEnemy);
+
+        PlayAttackSound(hittingSomething);
     }
+
+
 
     void PlayAttackSound(bool hitEnemies)
     {
@@ -81,4 +94,5 @@ public class PlayerAttack : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
     }
+
 }

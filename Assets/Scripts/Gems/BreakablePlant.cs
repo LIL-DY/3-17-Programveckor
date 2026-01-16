@@ -6,7 +6,7 @@ public class BreakablePlant : MonoBehaviour
 
     [Header("Drop")]
     public GameObject gemPrefab;
-    [Range(0f, 1f)] public float dropChance = 0.35f; // 35% chans
+    [Range(0f, 1f)] public float dropChance = 0.25f;
     public int minGems = 1;
     public int maxGems = 2;
 
