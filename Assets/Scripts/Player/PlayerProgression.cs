@@ -5,6 +5,8 @@ public class PlayerProgression : MonoBehaviour
     public int xp = 0;
     public int level = 1;
     public int xpNeeded = 100;
+    public int currency = 0;
+
 
     public int upgradePoints = 0;
 
@@ -21,6 +23,12 @@ public class PlayerProgression : MonoBehaviour
             upgradePoints += 1; // 1 poäng per level
             Debug.Log("Player LEVEL UP! Level: " + level + " | Upgrade Points: " + upgradePoints);
         }
+    }
+
+    public void AddCurrency(int amount)
+    {
+        currency += amount;
+        Debug.Log("Currency: " + currency);
     }
 
     public bool SpendUpgradePoint()
